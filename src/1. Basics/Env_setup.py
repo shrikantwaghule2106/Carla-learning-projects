@@ -99,7 +99,7 @@ def main():
         print("Running simulation for 10 seconds...")
         while running:
             # Run for 10 seconds
-            if pygame.time.get_ticks() - start_time > 10000:  # 10 seconds
+            if pygame.time.get_ticks() - start_time > 20000:  # 10 seconds
                 running = False
 
             for event in pygame.event.get():
