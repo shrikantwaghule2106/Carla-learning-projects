@@ -1,11 +1,7 @@
-from pdb import run
-import re
-from tracemalloc import start
 import carla
 import numpy as np
 import pygame
 import random
-import os
 from collections import deque
 
 class SensorManager:

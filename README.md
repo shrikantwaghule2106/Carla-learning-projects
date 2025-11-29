@@ -8,7 +8,7 @@ Learning Basics
 2. Ensure CARLA setup is running on localhost 2000
    netstat -ano | findstr :2000
 
-## 🚗 Project Structure
+## Project Structure
 
 ### Phase 1: Fundamentals
 
@@ -42,13 +42,40 @@ Learning Basics
 
 ### Phase 2: Sensor Systems
 
-- RGB camera, LIDAR, and collision sensors
-- Data processing and sensor fusion
+    A[Main Execution] --> B[Client Connection]
+    B --> C[Vehicle Spawning]
+    C --> D[SensorManager Initialization]
+    D --> E[Camera Setup]
+    D --> F[LIDAR Setup]
+    D --> G[Collision Sensor Setup]
+    E --> H[Data Processing Pipeline]
+    F --> H
+    G --> H
+    H --> I[Main Loop]
+    I --> J[Cleanup]
 
-### Phase 3: Vehicle Control
+    #All sensors use attach_to=self.vehicle to move relative to the vehicle.
+    #Asynchronous sensor callbacks and synchronous main loop.
+    # RGB camera on the front, LIDAR sensor and Collision sensor(in vehicle sensor) used.
 
-- Manual and autonomous control systems
-- Waypoint navigation and PID controllers
+### Phase 3: Vehicle Control (Autonomous Driving)
+
+    A[AutonomousVehicleSystem] --> B[VehicleController]
+    A --> C[SensorManager]
+    B --> D[PIDController-Speed]
+    B --> E[PIDController-Steering]
+    B --> F[Waypoint Navigation]
+    B --> G[Obstacle Avoidance]
+    B --> H[Traffic Light Detection]
+    C --> I[Camera]
+    C --> J[LIDAR]
+    C --> K[Collision Sensor]
+
+    # Waypoint generation using CARLA's waypoint system.
+    # Geometric angle based steering
+    # Curve adaption
+    # PID Regulation
+    # Traffic light compliance with detection and automatic braking
 
 ### Phase 4: Traffic Simulation
 
