@@ -77,6 +77,7 @@ Learning Basics
     # PID Regulation
     # Traffic light compliance with detection and automatic braking
 
+------x---------x---------x------ TO BE DONE -----x-------x-------x------    
 ### Phase 4: Traffic Simulation
 
 - Traffic management and pedestrian behavior
